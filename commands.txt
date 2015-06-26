@@ -1,0 +1,60 @@
+OGR2OGR and SHP2PGSQL
+
+creating shapefile from geodatabase file (.gdb) - (install ogr)
+    ogr2ogr -f "ESRI Shapefile" path/to/shapefile path/to/gdb
+
+    ^^^what is happening^^^
+        ogr2ogr directs action to convert from one ogr file type to another (gdb to shp in this case)
+        -f (select a driver) "ESRI Shapefile" (the driver you want to use for conversion)
+        path/to/shapefile - new shapefile you will create ie; ny/ny_places/ny.shp
+        path/to/gdb - file being converted ie; ny/ny_geodatabase/ny.gdb
+
+        NOTE - this will output several files upon conversion - you need all the new files in same directory
+
+converting shapefile to Postgres Table - need postgres (run these on floppy or set up postgres on your box)
+    shp2pgsql -s 4269 path/to/shapefile schema.new_table | psql -d data_base
+
+    ^^^ what is happening ^^^
+        
+        shp2pgsql directs the action from shapefile into postgresSQL
+        -s (set cordinate projection) 4269 (one of many coordinate projections)
+        path/to/shapefile is the shapefile you are converting
+        schema is the table schema and new_table is the new table you wish to create
+        | pipe that action into the sql databse action
+        -d data_base sets the target database destination
+
+the above statement can be reversed from table to shapefile
+    pgsql2shp -f file/destination -u username data_base table
+
+geojson file to shp - ogr functionality (install ogr)
+    ogr2ogr -nlt POINT -skipfailures points.shp geojson file.geojason OGRGeoJson
+
+=======================================================================================================================
+
+POSTGRESQL COMMANDS
+
+change column name
+    alter table tbl_1 rename column clmn_name to new_clmn_name;
+
+check column type
+    select column_name, data_type
+    from information_schema.columns
+    where table_name = 'ca_vr'
+    order by ordinal_position;
+
+change column type when "using" is required
+    alter table tbl_1 alter column clmn_name type insert_type using(trim(clmn_name)::insert_type);
+
+sum a field - vr example
+    select zip,
+    coalesce(count(case when party = 'D' then 1 end), 0) as D,
+    coalesce(count(case when party = 'R' then 1 end), 0) as R,
+    coalesce(count(case when party = 'O' then 1 end), 0) as O
+    from ca_vr
+    group by zip;
+
+count points inside of polys
+    select boundaries.gid, count(points.geom) as totale
+    from boundaries left join points
+    on st_contains(boundaries.geom,points.geom)
+    group by boundaries.gid;
