@@ -58,3 +58,14 @@ count points inside of polys
     from boundaries left join points
     on st_contains(boundaries.geom,points.geom)
     group by boundaries.gid;
+
+=======================================================================================================================
+
+AWK & GSED
+
+add a prefix to the first column in a csv file | replace all the " from that prefix insertion
+    awk '{$1="CO"$1; print}'list2.csv | gsed -e 's/\"/''/g' > list3.csv
+
+swap two columns around in a csv file
+    awk -F, -v OFS=, '{tmp=$1;$1=$2;$2=tmp;print}' toy.csv > toy2.csv
+
