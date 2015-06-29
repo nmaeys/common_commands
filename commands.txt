@@ -69,3 +69,5 @@ add a prefix to the first column in a csv file | replace all the " from that pre
 swap two columns around in a csv file
     awk -F, -v OFS=, '{tmp=$1;$1=$2;$2=tmp;print}' toy.csv > toy2.csv
 
+replace character
+    gsed -e 's/find_char/replace_char/g'
