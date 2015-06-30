@@ -71,3 +71,11 @@ swap two columns around in a csv file
 
 replace character
     gsed -e 's/find_char/replace_char/g'
+
+=======================================================================================================================
+
+SCP
+
+scp path/to/file host/path/to/file
+
+scp host/path/to/file local/path/to/file
