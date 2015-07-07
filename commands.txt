@@ -59,6 +59,12 @@ count points inside of polys
     on st_contains(boundaries.geom,points.geom)
     group by boundaries.gid;
 
+\?
+    get some help in general
+
+\h
+   get help on sql queries  
+
 =======================================================================================================================
 
 AWK & GSED
