@@ -67,7 +67,7 @@ count points inside of polys
 
 =======================================================================================================================
 
-AWK & GSED
+(G)AWK & GSED
 
 add a prefix to the first column in a csv file | replace all the " from that prefix insertion
     awk '{$1="CO"$1; print}'list2.csv | gsed -e 's/\"/''/g' > list3.csv
@@ -77,6 +77,9 @@ swap two columns around in a csv file
 
 replace character
     gsed -e 's/find_char/replace_char/g'
+
+find uniqe values in a column of file get the number of times it occurs and pump it to a new file
+    gawk -F ',' '{print $1}' ak_vh.csv | sort | uniq -c > uniqes.csv
 
 =======================================================================================================================
 
