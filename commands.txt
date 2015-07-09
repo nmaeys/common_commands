@@ -81,6 +81,9 @@ replace character
 find uniqe values in a column of file get the number of times it occurs and pump it to a new file
     gawk -F ',' '{print $1}' ak_vh.csv | sort | uniq -c > uniqes.csv
 
+insert header to file 
+    gsed -i -e '1iHere is the new line text\' sample.csv
+
 =======================================================================================================================
 
 SCP
