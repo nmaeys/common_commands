@@ -65,6 +65,9 @@ count points inside of polys
 \h
    get help on sql queries  
 
+move table from one db to another db
+    pg_dump -t <table name> <source DB> | psql -d <target DB> 
+
 =======================================================================================================================
 
 (G)AWK & GSED
