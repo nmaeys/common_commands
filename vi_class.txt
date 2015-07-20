@@ -1,0 +1,83 @@
+__     _____ 
+\ \   / /_ _|
+ \ \ / / | | 
+  \ V /  | | 
+   \_/  |___|
+By NickiVI
+
+[[ Two modes - insert and normal ]]
+[[ Basic movement - h, j, k, and l
+    slide your right hand fingies over one key to the left and you're officially in vi mode!
+    h - left, l - right, j - down, k - up
+
+[[ Advanced movement(6-vim) - H, J, K, and L ]]
+    H - home, L - end, J - page down, K - page up
+
+[[ Removing a character - x ]]
+[[ Deleting  ]]
+    delete - d
+    delete line - dd
+    delete word - dw
+
+[[ undo - u ]]
+[[ redo - ctrl+r ]]
+
+[[ Insert new line - o and O ]]
+[[ Visual (highlight) mode  ]]
+    highlight - v 
+    line select - V 
+    block (column select) - ctrl+v 
+    replacing sections - once you have a block of text highlighted..
+        c - delete the highlighted block of text and go directly to insert mode so you can start typing right away
+        p - paste the clipboard over the highlighted block of text
+
+[[ Copy and Paste ]]
+    copy(yank) line - yy
+    paste line      - p
+    copy segment    - v+y 
+    paste segment   - p
+    pasting on multiple lines - ctrl+v, I, <character>, 2xESC
+
+[[ Indending multiple lines - V+>, V+< ]]
+[[ Replacing letter under cursor - r ]]
+[[ Repetition - . ]]
+[[ Word movement(6-vim):  ]]
+    e - move forward a word
+    w - move back a word
+
+[[ Folding - f and F ]]
+    f - folds paragraphs based on their indent level
+    F - unfolds on the same criterion
+    other fold criteria are available
+
+[[ Goto_line ]]
+    beginning - gg 
+    end of file - G
+    goto line number - :<number>
+
+[[ Search_Find_Replace ]]
+    find - /text with n and N
+    turn off highlighting - :nohl or (6-vim) ,n
+    find-replace - :%s/<find>/<replace>/g
+    find-replace confirm - :%s/<find>/<replace>/gc
+
+[[ Multi_Screen_Editing ]]
+    vertical split - :vsplit <filename>
+    horizontal split - :split <filename>
+    switching windows - ctrl + h,j,k, or l
+    moving windows around - <ctrl+w> + H,J,K, or L
+    vi also has tab capabilities, but I have never used them.
+
+[[ Running_os_commands: ]]
+    :!<linux_command>
+    running a program - :!python %   (% means current filename)
+
+[[ Plugins and Extensions ]]
+    Vundle - manage vi plugins
+    NERDTree - file browser
+    YouCompleteMe - text completion engine
+    Calendar - google calendar viewer
+
+[[ Tags ]]
+    ctags -R source_directory
+    set tags=tags; put this in your vimrc
