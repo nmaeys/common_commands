@@ -38,3 +38,9 @@ can add geometries to polygons
         # ring is a predefined geometry ie; built from a tabular file
 
 =======================================================================================================================
+
+ogr2ogr
+
+convert gdb to pgsql 
+    ogr2ogr -append -skipfailures -f "PostgreSQL" PG:"host=hots port=port user=user dbname=dbname password=password" 
+        "path/to/gdb.gdb" "table_name"
