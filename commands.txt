@@ -83,6 +83,10 @@ populate target database from gdb file
     password=" "./source.gdb/"
     ***ogr2ogr move between two types of spatial data -t_srs override the CRS
 
+check SRID 
+    select st_srid(the_geom) from table;
+        ***can limit output number if so desired: limit 1
+
 =======================================================================================================================
 
 (G)AWK & GSED
