@@ -75,6 +75,14 @@ count points inside of polys
 move table from one db to another db
     pg_dump -t <table name> <source DB> | psql -d <target DB> 
 
+copy a table from one db to another
+    pg_dump -U postgres -t original_table original_db | psql target_db
+
+populate target database from gdb file
+    ogr2ogr -skipfailures -f "PostgreSQL" -t_srs EPSG:3857 PG:"host= port=5432 user=postgres dbname=
+    password=" "./source.gdb/"
+    ***ogr2ogr move between two types of spatial data -t_srs override the CRS
+
 =======================================================================================================================
 
 (G)AWK & GSED
