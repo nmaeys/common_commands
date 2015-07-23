@@ -87,6 +87,12 @@ check SRID
     select st_srid(the_geom) from table;
         ***can limit output number if so desired: limit 1
 
+change SRID
+    alter table my_table
+    alter column geom_column
+    type Geometry(Point, target_srid)
+    usint ST_Transform(geom_column, target_srid);
+
 =======================================================================================================================
 
 (G)AWK & GSED
