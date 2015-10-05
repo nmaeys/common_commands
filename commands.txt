@@ -93,6 +93,9 @@ change SRID
     type Geometry(Point, target_srid)
     usint ST_Transform(geom_column, target_srid);
 
+add spatial index to large tables for faster queries
+    create index name_of_index on name_of_table using GIST(geom_column);
+
 =======================================================================================================================
 
 (G)AWK & GSED
