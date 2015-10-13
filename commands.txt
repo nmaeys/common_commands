@@ -100,6 +100,9 @@ select most frequent value(s) in a column and get their counts
     select count(*), myvalue from table group by myvalue order by
     count(*) desc limit 1;
         ** can specify limit ie; top 100 with desc limit #
+
+copy table from one psql database to another
+    pg_dump -t table_to_copy source_db | psql target_db
 =======================================================================================================================
 
 (G)AWK & GSED
