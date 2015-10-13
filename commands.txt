@@ -96,6 +96,10 @@ change SRID
 add spatial index to large tables for faster queries
     create index name_of_index on name_of_table using GIST(geom_column);
 
+select most frequent value(s) in a column and get their counts
+    select count(*), myvalue from table group by myvalue order by
+    count(*) desc limit 1;
+        ** can specify limit ie; top 100 with desc limit #
 =======================================================================================================================
 
 (G)AWK & GSED
