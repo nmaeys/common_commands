@@ -80,7 +80,7 @@ copy a table from one db to another
 
 populate target database from gdb file
     ogr2ogr -skipfailures -f "PostgreSQL" -t_srs EPSG:3857 PG:"host= port=5432 user=postgres dbname=
-    password=" "./source.gdb/"
+    password=" "./source.gdb/" --config PG_USE_COPY YES
     ***ogr2ogr move between two types of spatial data -t_srs override the CRS
 
 check SRID 
@@ -103,6 +103,11 @@ select most frequent value(s) in a column and get their counts
 
 copy table from one psql database to another
     pg_dump -t table_to_copy source_db | psql target_db
+
+find the size of all your postgres databases on disk 
+    SELECT pg_database.datname,  
+           pg_size_pretty(pg_database_size(pg_database.datname)) AS size  
+      FROM pg_database;
 =======================================================================================================================
 
 (G)AWK & GSED
