@@ -79,8 +79,8 @@ copy a table from one db to another
     pg_dump -U postgres -t original_table original_db | psql target_db
 
 populate target database from gdb file
-    ogr2ogr -skipfailures -f "PostgreSQL" -t_srs EPSG:3857 PG:"host= port=5432 user=postgres dbname=
-    password=" "./source.gdb/" --config PG_USE_COPY YES
+    ogr2ogr --config PG_USE_COPY YES -skipfailures -f "PostgreSQL" PG:"host= port=5432 user=postgres dbname=
+    password=" "./source.gdb/" "specify_layer"
     ***ogr2ogr move between two types of spatial data -t_srs override the CRS
 
 check SRID 
