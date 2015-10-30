@@ -108,6 +108,10 @@ find the size of all your postgres databases on disk
     SELECT pg_database.datname,  
            pg_size_pretty(pg_database_size(pg_database.datname)) AS size  
       FROM pg_database;
+
+remove points from a point table that fall outside of the polygon you are interested ing
+    create table party_good_ca as select voter_id, wkb_geometry, party from goodaddr_vr_ca as p inner join geo_state as
+    s on lower(p.state) = substring(s.shid from 18 for 2) where st_within(p.wkb_geometry,s.geom);
 =======================================================================================================================
 
 (G)AWK & GSED
