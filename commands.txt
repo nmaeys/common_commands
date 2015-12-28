@@ -38,7 +38,10 @@ geojson file to shp - ogr functionality (install ogr)
 
 =======================================================================================================================
 
-POSTGRESQL COMMANDS
+POSTGRESQL RELATED 
+
+find stuff in a dir and upload it to postgres
+    find ./*/od/ -name *2013.csv -exec psql -c "\copy lodes_block from '{}' header csv" -d propdata \;
 
 change column name
     alter table tbl_1 rename column clmn_name to new_clmn_name;
