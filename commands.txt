@@ -20,6 +20,9 @@ creating shapefile from geodatabase file (.gdb) - (install ogr)
 
 converting shapefile to Postgres Table - need postgres (run these on floppy or set up postgres on your box)
     shp2pgsql -s 4269 path/to/shapefile schema.new_table | psql -d data_base
+you can also use shp2pgsql to upload .dbf files to postgres
+    the command line will just ignore the missing shp and shx and upload "attribute table"
+    adding -a after the shp2pgsql will allow you to append to the specified table
 
     ^^^ what is happening ^^^
         
