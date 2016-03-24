@@ -1,0 +1,8 @@
+zshell 
+    https://github.com/robbyrussell/oh-my-zsh
+use this repo to install and dowload cool things
+
+for docker put in bashrc or zishrc
+ # docker
+eval "$(docker-machine env default)"
+export DOCKER_HOST_IP="$(docker-machine ip default)"
