@@ -2,6 +2,8 @@ zshell
     https://github.com/robbyrussell/oh-my-zsh
 use this repo to install and dowload cool things
 
+the plugin theme that i liked is risto
+
 for docker put in bashrc or zishrc
  # docker
 eval "$(docker-machine env default)"
