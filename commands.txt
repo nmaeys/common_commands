@@ -44,7 +44,7 @@ geojson file to shp - ogr functionality (install ogr)
 POSTGRESQL RELATED 
 
 find stuff in a dir and upload it to postgres
-    find ./*/od/ -name *2013.csv -exec psql -c "\copy lodes_block from '{}' header csv" -d propdata \;
+    find ./*/od/ -name *wildcard.csv -exec psql -c "\copy table_name from '{}' header csv" -d database \;
 
 change column name
     alter table tbl_1 rename column clmn_name to new_clmn_name;
@@ -52,7 +52,7 @@ change column name
 check column type
     select column_name, data_type
     from information_schema.columns
-    where table_name = 'ca_vr'
+    where table_name = 'table'
     order by ordinal_position;
 
 change column type when "using" is required
@@ -151,5 +151,13 @@ scp host/path/to/file local/path/to/file
 
 =======================================================================================================================
 Regex
+
 useful for all non asci
 [^\x00-\x7F]
+
+=======================================================================================================================
+
+BASH Commands
+
+list of open files greped for postgres (grep whatever)
+f -P -i -n -sTCP:LISTEN | grep postgres

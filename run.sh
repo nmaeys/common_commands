@@ -1,3 +1,3 @@
 for i in $(ls);do
-    shp2pgsql -a  $i dc_1990.st1a_1 | psql -d propdata -h floppyjoe -U postgres
+    shp2pgsql -a  $i destination_table | psql -d dbase -h host -U postgres
 done
